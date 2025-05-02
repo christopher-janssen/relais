@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="mini-prac_files/libs/revealjs/dist/theme/quarto-c77a65ffb22a158f16ff286ec3d3fed8.css">
+  <link rel="stylesheet" href="mini-prac_files/libs/revealjs/dist/theme/quarto-dd5690d343c0f3a8197720caf32dfc27.css">
   <link href="mini-prac_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="mini-prac_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="mini-prac_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -207,117 +207,713 @@ Christopher Janssen
 </section>
 <section id="introduction" class="slide level2 section-slide">
 <h2>Introduction</h2>
-<p>UW-Madison Addiction Research Center.</p>
 </section>
-<section id="four-key-concepts" class="slide level2 centered">
-<h2>Four Key Concepts</h2>
-<div class="r-stack">
-<div class="concept-container visible-container">
-<div class="grid-container">
-<div id="concept1" class="concept-box" data-id="concept1">
-<h3 id="concept-1">Concept 1</h3>
-</div>
-<div id="concept2" class="concept-box" data-id="concept2">
-<h3 id="concept-2">Concept 2</h3>
-</div>
-<div id="concept3" class="concept-box" data-id="concept3">
-<h3 id="concept-3">Concept 3</h3>
-</div>
-<div id="concept4" class="concept-box" data-id="concept4">
-<h3 id="concept-4">Concept 4</h3>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="research-context" class="slide level2">
-<h2>Research Context</h2>
-<p>Challenge: Maintaining engagement with digital therapeutics for AUD</p>
-<p>Our Lab’s Approach: “Smart” A-CHESS with ML-powered lapse prediction</p>
-<p>Current Focus: Optimizing how risk information is communicated to users</p>
-<p>Key Question: How to generate diverse, clinically sound messages at scale?</p>
-</section>
-<section id="the-four-message-components" class="slide level2">
-<h2>The Four Message Components</h2>
-<p>Our clinical trial tests messages that make risk predictions transparent:</p>
+<section id="context" class="slide level2">
+<h2>Context</h2>
+<div class="info-box">
 <ul>
-<li>Lapse probability: Current risk level (low/moderate/high)</li>
-<li>Probability change: Trends in risk level over time</li>
-<li>Important features: Key risk factors identified by the model</li>
-<li>Module recommendations: Suggestions tailored to risk factors</li>
+<li>Collaboration with Curtin Lab on Smart A-CHESS project</li>
+<li>Focus on automating personalized engagement messages</li>
+<li>Using Azure OpenAI API for message generation</li>
 </ul>
+</div>
+<aside class="notes">
+<p>This presentation focuses on my contribution to the Curtin Lab’s research on smart digital therapeutics for alcohol use disorder. Specifically, I’ve developed an R interface that connects to the Azure OpenAI API to automate the generation of personalized support messages.</p>
+<p>These messages, and therefore the message generation process, represent a crucial component of this study for two key reasons. Firstly, these messages deliver the personalized risk information that forms the foundation of the experimental design, and secondly, this automation provides a practical, cost-effective approach to scaling this intervention for broader implementation, especially outside of research settings.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="project-optimize" class="slide level2">
-<h2>Project Optimize</h2>
-<p>Working on the development of digital therapeutics.</p>
+<section id="understanding-a-chess-research-context" class="slide level2 section-slide">
+<h2>Understanding <em>A-CHESS</em> &amp; Research Context</h2>
 </section>
-<section id="flight_support.r" class="slide level2">
-<h2><code>flight_support.R</code></h2>
-<p>A function that provides an aviation-themed interface to the Azure API for generating message variations.</p>
-<p>Key features:</p>
-<ul>
-<li>Seamless dependency management</li>
-<li>API credential handling</li>
-<li>Flexible message generation with system and user roles</li>
-<li>Multiple response variations with temperature control</li>
-</ul>
-</section>
-<section id="section-title" class="slide level2 section-slide">
-<h2>Section Title</h2>
-<p>This slide will have the special section divider styling.</p>
-</section>
-<section id="slide-with-columns" class="slide level2">
-<h2>Slide with Columns</h2>
+<section id="a-chess-a-digital-therapeutic-for-alcohol-use-disorder" class="slide level2">
+<h2>A-CHESS: A Digital Therapeutic for Alcohol Use Disorder</h2>
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[0.5, 0.55]">
+<div class="quarto-layout-panel" data-layout="[0.5, 0.5]">
 <div class="quarto-layout-row">
-<div id="first-column" class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
-<p>Content for first column</p>
+<div id="first-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>A-CHESS</strong>:</p>
+<div>
+<ul>
+<li class="fragment">Addiction</li>
+<li class="fragment">Comprehensive</li>
+<li class="fragment">Health</li>
+<li class="fragment">Enhancement</li>
+<li class="fragment">Support</li>
+<li class="fragment">System</li>
+</ul>
 </div>
-<div id="second-column" class="quarto-layout-cell" style="flex-basis: 52.4%;justify-content: flex-start;">
-<p>Content for second column</p>
+</div>
+<div id="second-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Addresses barriers to treatment:</p>
+<div>
+<ul>
+<li class="fragment">Availability</li>
+<li class="fragment">Accessibility</li>
+<li class="fragment">Affordability</li>
+<li class="fragment">Acceptability</li>
+</ul>
 </div>
 </div>
 </div>
+</div>
+<aside class="notes">
+<p>A-CHESS stands for Comprehensive Health Enhancement Support System for Addiction. Developed at the Center for Health Enhancement Systems Studies, A-CHESS is an evidence-based digital therapeutic for alcohol use disorder. Clinical trials have shown it can reduce risky drinking days by 57% and double the odds of abstinence compared to treatment as usual. What makes A-CHESS particularly valuable is how it addresses the major barriers that prevent many people with AUD from receiving treatment. It provides 24/7 access via smartphones, reaches underserved populations, scales cost-effectively, and reduces the stigma associated with seeking help for AUD.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="whats-the-function" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">What’s the Function?</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a href=""></a><span class="fu">pilot_message</span>(</span>
-<span id="cb1-2" class="hljs-ln-code"><a href=""></a>  <span class="at">system_prompt =</span> sys_prompt</span>
-<span id="cb1-3" class="hljs-ln-code"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="section" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a href=""></a><span class="fu">pilot_message</span>(</span>
-<span id="cb2-2" class="hljs-ln-code"><a href=""></a>  <span class="at">system_prompt =</span> sys_prompt,</span>
-<span id="cb2-3" class="hljs-ln-code"><a href=""></a>  <span class="at">base_prompt =</span> prompt4a</span>
-<span id="cb2-4" class="hljs-ln-code"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="section-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a href=""></a><span class="fu">pilot_message</span>(</span>
-<span id="cb3-2" class="hljs-ln-code"><a href=""></a>  <span class="at">system_prompt =</span> sys_prompt,</span>
-<span id="cb3-3" class="hljs-ln-code"><a href=""></a>  <span class="at">base_prompt =</span> prompt4a,</span>
-<span id="cb3-4" class="hljs-ln-code"><a href=""></a>  <span class="at">connections =</span> <span class="dv">3</span>,</span>
-<span id="cb3-5" class="hljs-ln-code"><a href=""></a>  <span class="at">temperature =</span> <span class="dv">0</span></span>
-<span id="cb3-6" class="hljs-ln-code"><a href=""></a> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="special-boxes" class="slide level2">
-<h2>Special Boxes</h2>
+<section id="smart-a-chess-the-next-gen" class="slide level2">
+<h2>Smart A-CHESS: The Next Gen</h2>
+<p>Evolution of digital therapeutics for AUD</p>
 <div class="highlight-box">
-<p>Important content that needs highlighting with the dusty rose accent.</p>
+<ul>
+<li>Innovations:
+<ul>
+<li><p>Embedded machine learning prediction models</p></li>
+<li><p>Personal sensing capabilities (EMA, geolocation)</p></li>
+<li><p>Personalized risk assessment</p></li>
+<li><p>Just-in-time adaptive interventions</p></li>
+</ul></li>
+</ul>
 </div>
+<aside class="notes">
+<p>The overarching goal is to optimize how Smart A-CHESS provides feedback to users to maximize both engagement with the app and clinical outcomes.</p>
+<p>The current study tests three different components of engagement messages:</p>
+<ul>
+<li><p>information about lapse probability including changes in that probability over time</p></li>
+<li><p>important risk factors identified by the model,</p></li>
+<li><p>and specific module recommendations tailored to address those risk factors.</p></li>
+</ul>
+<p>The study will include upwards of 400 participants with moderate to severe alcohol use disorder and track both their engagement with the app and their drinking outcomes over six months. This large-scale optimization study will determine which message components should be included in future versions of Smart A-CHESS and similar digital therapeutics.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="code" class="slide level2 section-slide">
+<h2>Code</h2>
+
+<img data-src="../images/airplane1.png" class="r-stretch"></section>
+<section id="the-flight_support.r-script" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">The <code>flight_support.R</code> Script</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a href=""></a>{</span>
+<span id="cb1-2" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">exists</span>(<span class="st">"runway_cleared"</span>, <span class="at">envir =</span> .GlobalEnv)) {</span>
+<span id="cb1-3" class="hljs-ln-code"><a href=""></a>    clear_runway <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-4" class="hljs-ln-code"><a href=""></a>      required_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-5" class="hljs-ln-code"><a href=""></a>        <span class="st">"httr2"</span>,     </span>
+<span id="cb1-6" class="hljs-ln-code"><a href=""></a>        <span class="st">"tidyverse"</span>  </span>
+<span id="cb1-7" class="hljs-ln-code"><a href=""></a>      )</span>
+<span id="cb1-8" class="hljs-ln-code"><a href=""></a>      </span>
+<span id="cb1-9" class="hljs-ln-code"><a href=""></a>      <span class="cf">for</span>(pkg <span class="cf">in</span> required_packages) {</span>
+<span id="cb1-10" class="hljs-ln-code"><a href=""></a>        <span class="cf">if</span>(<span class="sc">!</span><span class="fu">requireNamespace</span>(pkg, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-11" class="hljs-ln-code"><a href=""></a>          <span class="fu">message</span>(<span class="fu">paste0</span>(<span class="st">"Installing package: "</span>, pkg))</span>
+<span id="cb1-12" class="hljs-ln-code"><a href=""></a>          <span class="fu">install.packages</span>(pkg)</span>
+<span id="cb1-13" class="hljs-ln-code"><a href=""></a>        }</span>
+<span id="cb1-14" class="hljs-ln-code"><a href=""></a>        <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-15" class="hljs-ln-code"><a href=""></a>      }</span>
+<span id="cb1-16" class="hljs-ln-code"><a href=""></a>      </span>
+<span id="cb1-17" class="hljs-ln-code"><a href=""></a>      <span class="fu">message</span>(<span class="st">"All required packages loaded successfully. Ready for takeoff!"</span>)</span>
+<span id="cb1-18" class="hljs-ln-code"><a href=""></a>    }</span>
+<span id="cb1-19" class="hljs-ln-code"><a href=""></a>    </span>
+<span id="cb1-20" class="hljs-ln-code"><a href=""></a>    <span class="fu">clear_runway</span>()</span>
+<span id="cb1-21" class="hljs-ln-code"><a href=""></a>    <span class="fu">assign</span>(<span class="st">"runway_cleared"</span>, <span class="cn">TRUE</span>, <span class="at">envir =</span> .GlobalEnv)</span>
+<span id="cb1-22" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb1-23" class="hljs-ln-code"><a href=""></a>}</span>
+<span id="cb1-24" class="hljs-ln-code"><a href=""></a></span>
+<span id="cb1-25" class="hljs-ln-code"><a href=""></a>airport_security <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-26" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">exists</span>(<span class="st">"flight_credentials"</span>, <span class="at">envir =</span> .GlobalEnv)) {</span>
+<span id="cb1-27" class="hljs-ln-code"><a href=""></a>    <span class="co"># check if api file exists</span></span>
+<span id="cb1-28" class="hljs-ln-code"><a href=""></a>    <span class="cf">if</span>(<span class="fu">file.exists</span>(<span class="st">"azure.api"</span>)) {</span>
+<span id="cb1-29" class="hljs-ln-code"><a href=""></a>      </span>
+<span id="cb1-30" class="hljs-ln-code"><a href=""></a>      api <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"azure.api"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)      </span>
+<span id="cb1-31" class="hljs-ln-code"><a href=""></a>      api_key <span class="ot">&lt;-</span> api<span class="sc">$</span>key[[<span class="dv">1</span>]] </span>
+<span id="cb1-32" class="hljs-ln-code"><a href=""></a>      endpoint <span class="ot">&lt;-</span> api<span class="sc">$</span>endpoint[[<span class="dv">1</span>]] </span>
+<span id="cb1-33" class="hljs-ln-code"><a href=""></a>    } <span class="cf">else</span> {  <span class="co"># input api details</span></span>
+<span id="cb1-34" class="hljs-ln-code"><a href=""></a>      <span class="fu">cat</span>(<span class="st">"Please provide your flight credentials:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-35" class="hljs-ln-code"><a href=""></a>      api_key <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">"Enter your API key: "</span>)</span>
+<span id="cb1-36" class="hljs-ln-code"><a href=""></a>      endpoint <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">"Enter your API endpoint: "</span>)</span>
+<span id="cb1-37" class="hljs-ln-code"><a href=""></a>    }</span>
+<span id="cb1-38" class="hljs-ln-code"><a href=""></a>    </span>
+<span id="cb1-39" class="hljs-ln-code"><a href=""></a>    flight_credentials <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">api_key =</span> api_key,</span>
+<span id="cb1-40" class="hljs-ln-code"><a href=""></a>                               <span class="at">endpoint =</span> endpoint)</span>
+<span id="cb1-41" class="hljs-ln-code"><a href=""></a>    <span class="fu">assign</span>(<span class="st">"flight_credentials"</span>, flight_credentials, <span class="at">envir =</span> .GlobalEnv)</span>
+<span id="cb1-42" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb1-43" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-44" class="hljs-ln-code"><a href=""></a>  <span class="fu">return</span>(<span class="fu">get</span>(<span class="st">"flight_credentials"</span>, <span class="at">envir =</span> .GlobalEnv))</span>
+<span id="cb1-45" class="hljs-ln-code"><a href=""></a>}</span>
+<span id="cb1-46" class="hljs-ln-code"><a href=""></a></span>
+<span id="cb1-47" class="hljs-ln-code"><a href=""></a></span>
+<span id="cb1-48" class="hljs-ln-code"><a href=""></a>set_course <span class="ot">&lt;-</span> <span class="cf">function</span>(prompt, <span class="at">system_content =</span> <span class="cn">NULL</span>, <span class="at">temperature =</span> <span class="dv">0</span>) {</span>
+<span id="cb1-49" class="hljs-ln-code"><a href=""></a>  credentials <span class="ot">&lt;-</span> <span class="fu">airport_security</span>()</span>
+<span id="cb1-50" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-51" class="hljs-ln-code"><a href=""></a>  <span class="co"># Ensure temperature is within valid range (0-2)</span></span>
+<span id="cb1-52" class="hljs-ln-code"><a href=""></a>  temperature <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="dv">0</span>, <span class="fu">min</span>(<span class="dv">2</span>, temperature))</span>
+<span id="cb1-53" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-54" class="hljs-ln-code"><a href=""></a>  messages <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb1-55" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-56" class="hljs-ln-code"><a href=""></a>  <span class="co"># add system message if provided</span></span>
+<span id="cb1-57" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(system_content)) {</span>
+<span id="cb1-58" class="hljs-ln-code"><a href=""></a>    messages[[<span class="fu">length</span>(messages) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"system"</span>, <span class="at">content =</span> system_content)</span>
+<span id="cb1-59" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb1-60" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-61" class="hljs-ln-code"><a href=""></a>  <span class="co"># add user message</span></span>
+<span id="cb1-62" class="hljs-ln-code"><a href=""></a>  messages[[<span class="fu">length</span>(messages) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"user"</span>, <span class="at">content =</span> prompt)</span>
+<span id="cb1-63" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-64" class="hljs-ln-code"><a href=""></a>  request <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">request</span>(credentials<span class="sc">$</span>endpoint) <span class="sc">|&gt;</span></span>
+<span id="cb1-65" class="hljs-ln-code"><a href=""></a>    httr2<span class="sc">::</span><span class="fu">req_headers</span>(</span>
+<span id="cb1-66" class="hljs-ln-code"><a href=""></a>      <span class="at">Authorization =</span> <span class="fu">paste</span>(<span class="st">"Bearer"</span>, credentials<span class="sc">$</span>api_key),</span>
+<span id="cb1-67" class="hljs-ln-code"><a href=""></a>      <span class="st">"Content-Type"</span> <span class="ot">=</span> <span class="st">"application/json"</span></span>
+<span id="cb1-68" class="hljs-ln-code"><a href=""></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb1-69" class="hljs-ln-code"><a href=""></a>    httr2<span class="sc">::</span><span class="fu">req_body_json</span>(<span class="fu">list</span>(</span>
+<span id="cb1-70" class="hljs-ln-code"><a href=""></a>      <span class="at">model =</span> <span class="st">"optimize-v2"</span>,</span>
+<span id="cb1-71" class="hljs-ln-code"><a href=""></a>      <span class="at">messages =</span> messages,</span>
+<span id="cb1-72" class="hljs-ln-code"><a href=""></a>      <span class="at">max_tokens =</span> <span class="dv">600</span>,</span>
+<span id="cb1-73" class="hljs-ln-code"><a href=""></a>      <span class="at">temperature =</span> temperature</span>
+<span id="cb1-74" class="hljs-ln-code"><a href=""></a>    ))</span>
+<span id="cb1-75" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-76" class="hljs-ln-code"><a href=""></a>  response <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">req_perform</span>(request)</span>
+<span id="cb1-77" class="hljs-ln-code"><a href=""></a>  httr2<span class="sc">::</span><span class="fu">resp_body_json</span>(response)</span>
+<span id="cb1-78" class="hljs-ln-code"><a href=""></a>}</span>
+<span id="cb1-79" class="hljs-ln-code"><a href=""></a></span>
+<span id="cb1-80" class="hljs-ln-code"><a href=""></a>pilot_message <span class="ot">&lt;-</span> <span class="cf">function</span>(base_prompt, </span>
+<span id="cb1-81" class="hljs-ln-code"><a href=""></a>                          <span class="at">system_prompt =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-82" class="hljs-ln-code"><a href=""></a>                          <span class="at">additional_information =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-83" class="hljs-ln-code"><a href=""></a>                          <span class="at">connections =</span> <span class="dv">4</span>,</span>
+<span id="cb1-84" class="hljs-ln-code"><a href=""></a>                          <span class="at">temperature =</span> <span class="dv">0</span>,</span>
+<span id="cb1-85" class="hljs-ln-code"><a href=""></a>                          <span class="at">itinerary =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb1-86" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-87" class="hljs-ln-code"><a href=""></a>  enhanced_prompt <span class="ot">&lt;-</span> base_prompt</span>
+<span id="cb1-88" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-89" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(additional_information)) {</span>
+<span id="cb1-90" class="hljs-ln-code"><a href=""></a>    enhanced_prompt <span class="ot">&lt;-</span> <span class="fu">paste0</span>(enhanced_prompt, </span>
+<span id="cb1-91" class="hljs-ln-code"><a href=""></a>                              <span class="st">"</span><span class="sc">\n</span><span class="st">Additional information: "</span>, additional_information)</span>
+<span id="cb1-92" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb1-93" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-94" class="hljs-ln-code"><a href=""></a>  all_messages <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb1-95" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-96" class="hljs-ln-code"><a href=""></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>connections) {</span>
+<span id="cb1-97" class="hljs-ln-code"><a href=""></a>    response <span class="ot">&lt;-</span> <span class="fu">set_course</span>(enhanced_prompt, <span class="at">system_content =</span> system_prompt, <span class="at">temperature =</span> temperature)</span>
+<span id="cb1-98" class="hljs-ln-code"><a href=""></a>    </span>
+<span id="cb1-99" class="hljs-ln-code"><a href=""></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(response) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.null</span>(response<span class="sc">$</span>choices) <span class="sc">&amp;&amp;</span> <span class="fu">length</span>(response<span class="sc">$</span>choices) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb1-100" class="hljs-ln-code"><a href=""></a>      raw_result <span class="ot">&lt;-</span> response<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content</span>
+<span id="cb1-101" class="hljs-ln-code"><a href=""></a>      all_messages[[i]] <span class="ot">&lt;-</span> <span class="fu">trimws</span>(raw_result)</span>
+<span id="cb1-102" class="hljs-ln-code"><a href=""></a>    } <span class="cf">else</span> {</span>
+<span id="cb1-103" class="hljs-ln-code"><a href=""></a>      all_messages[[i]] <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"API response error for connection"</span>, i)</span>
+<span id="cb1-104" class="hljs-ln-code"><a href=""></a>    }</span>
+<span id="cb1-105" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb1-106" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-107" class="hljs-ln-code"><a href=""></a>  all_messages <span class="ot">&lt;-</span> <span class="fu">unlist</span>(all_messages)</span>
+<span id="cb1-108" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb1-109" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span> (itinerary) {</span>
+<span id="cb1-110" class="hljs-ln-code"><a href=""></a>    <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb1-111" class="hljs-ln-code"><a href=""></a>      <span class="at">system =</span> system_prompt,</span>
+<span id="cb1-112" class="hljs-ln-code"><a href=""></a>      <span class="at">prompt =</span> enhanced_prompt,</span>
+<span id="cb1-113" class="hljs-ln-code"><a href=""></a>      <span class="at">response =</span> all_messages</span>
+<span id="cb1-114" class="hljs-ln-code"><a href=""></a>    ))</span>
+<span id="cb1-115" class="hljs-ln-code"><a href=""></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-116" class="hljs-ln-code"><a href=""></a>    <span class="fu">return</span>(all_messages)</span>
+<span id="cb1-117" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb1-118" class="hljs-ln-code"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>The <code>flight_support.R</code> script is the core of my contribution. I’ve created an intuitive R interface that handles connecting to the Azure API, sending properly formatted requests, and processing responses. Much to the chagrin of my collaborators, I’ve used an aviation theme for function naming. This theme reflects the idea of “piloting” the message generation process and, in my opinion, helps make the code more memorable and engaging for others who might work with it.</p>
+<p>The script consists of four main functions, each handling a specific aspect of the workflow. Obviously, the script is rather large for a presentation, so I’ll be breaking it down into these four functions</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="clear_runway-setting-up-the-environment" class="slide level2 smaller" data-auto-animate="true" data-transition="none">
+<h2 data-id="quarto-animate-title"><code>clear_runway()</code>: Setting Up the Environment</h2>
+<div class="sourceCode" id="cb2" data-code-line-numbers="|1-6|7-14|"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a href=""></a>clear_runway <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb2-2" class="hljs-ln-code"><a href=""></a>  required_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-3" class="hljs-ln-code"><a href=""></a>    <span class="st">"httr2"</span>,     </span>
+<span id="cb2-4" class="hljs-ln-code"><a href=""></a>    <span class="st">"tidyverse"</span>  </span>
+<span id="cb2-5" class="hljs-ln-code"><a href=""></a>  )</span>
+<span id="cb2-6" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb2-7" class="hljs-ln-code"><a href=""></a>  <span class="cf">for</span>(pkg <span class="cf">in</span> required_packages) {</span>
+<span id="cb2-8" class="hljs-ln-code"><a href=""></a>    <span class="cf">if</span>(<span class="sc">!</span><span class="fu">requireNamespace</span>(pkg, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb2-9" class="hljs-ln-code"><a href=""></a>      <span class="fu">message</span>(<span class="fu">paste0</span>(<span class="st">"Installing package: "</span>, pkg))</span>
+<span id="cb2-10" class="hljs-ln-code"><a href=""></a>      <span class="fu">install.packages</span>(pkg)</span>
+<span id="cb2-11" class="hljs-ln-code"><a href=""></a>    }</span>
+<span id="cb2-12" class="hljs-ln-code"><a href=""></a>    <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-13" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb2-14" class="hljs-ln-code"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>The ‘clear_runway()’ function handles the installation and loading of required packages. It’s designed to run only once per session by checking for a global variable. The function uses a list of required packages and installs any that aren’t already present, then loads all of them. This makes the script more user-friendly, especially for collaborators who might not have all dependencies installed. The primary dependencies are httr2 for API communication and tidyverse for data manipulation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="airport_security-api-access" class="slide level2 smaller" data-auto-animate="true" data-transition="none">
+<h2 data-id="quarto-animate-title"><code>airport_security()</code>: API Access</h2>
+<div class="sourceCode" id="cb3" data-code-line-numbers="|2|3-6|8-11|12-16|"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a href=""></a>airport_security <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-2" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">exists</span>(<span class="st">"flight_credentials"</span>, <span class="at">envir =</span> .GlobalEnv)) {</span>
+<span id="cb3-3" class="hljs-ln-code"><a href=""></a>    <span class="cf">if</span>(<span class="fu">file.exists</span>(<span class="st">"azure.api"</span>)) {</span>
+<span id="cb3-4" class="hljs-ln-code"><a href=""></a>      api <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"azure.api"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)      </span>
+<span id="cb3-5" class="hljs-ln-code"><a href=""></a>      api_key <span class="ot">&lt;-</span> api<span class="sc">$</span>key[[<span class="dv">1</span>]] </span>
+<span id="cb3-6" class="hljs-ln-code"><a href=""></a>      endpoint <span class="ot">&lt;-</span> api<span class="sc">$</span>endpoint[[<span class="dv">1</span>]] </span>
+<span id="cb3-7" class="hljs-ln-code"><a href=""></a>    } <span class="cf">else</span> { </span>
+<span id="cb3-8" class="hljs-ln-code"><a href=""></a>      <span class="fu">cat</span>(<span class="st">"Please provide your flight credentials:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-9" class="hljs-ln-code"><a href=""></a>      api_key <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">"Enter your API key: "</span>)</span>
+<span id="cb3-10" class="hljs-ln-code"><a href=""></a>      endpoint <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">"Enter your API endpoint: "</span>)</span>
+<span id="cb3-11" class="hljs-ln-code"><a href=""></a>    }</span>
+<span id="cb3-12" class="hljs-ln-code"><a href=""></a>    </span>
+<span id="cb3-13" class="hljs-ln-code"><a href=""></a>    flight_credentials <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">api_key =</span> api_key,</span>
+<span id="cb3-14" class="hljs-ln-code"><a href=""></a>                               <span class="at">endpoint =</span> endpoint)</span>
+<span id="cb3-15" class="hljs-ln-code"><a href=""></a>    <span class="fu">assign</span>(<span class="st">"flight_credentials"</span>, flight_credentials, <span class="at">envir =</span> .GlobalEnv)</span>
+<span id="cb3-16" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb3-17" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb3-18" class="hljs-ln-code"><a href=""></a>  <span class="fu">return</span>(<span class="fu">get</span>(<span class="st">"flight_credentials"</span>, <span class="at">envir =</span> .GlobalEnv))</span>
+<span id="cb3-19" class="hljs-ln-code"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>The ‘airport_security()’ function handles the sensitive API credentials. It first checks if credentials are already stored in the global environment from a previous call. If not, it looks for a file named ‘azure.api’ that would contain the key and endpoint. If that file doesn’t exist, it prompts the user to enter the credentials manually. Once obtained, the credentials are stored in the global environment for the duration of the session. This approach balances security with convenience, avoiding hardcoded credentials while not requiring repeated authentication.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="set_course-crafting-and-sending-copilot-api-requests" class="slide level2 smaller" data-auto-animate="true" data-transition="none">
+<h2 data-id="quarto-animate-title"><code>set_course()</code>: Crafting and Sending Copilot API Requests</h2>
+<div class="code-overflow-scroll" style="font-size: 0.8em; max-height: 400px;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb4-1" class="hljs-ln-code"><a href=""></a>set_course <span class="ot">&lt;-</span> <span class="cf">function</span>(prompt, <span class="at">system_content =</span> <span class="cn">NULL</span>, <span class="at">temperature =</span> <span class="dv">0</span>) {</span>
+<span id="cb4-2" class="hljs-ln-code"><a href=""></a>  credentials <span class="ot">&lt;-</span> <span class="fu">airport_security</span>()</span>
+<span id="cb4-3" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb4-4" class="hljs-ln-code"><a href=""></a>  temperature <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="dv">0</span>, <span class="fu">min</span>(<span class="dv">2</span>, temperature))</span>
+<span id="cb4-5" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb4-6" class="hljs-ln-code"><a href=""></a>  messages <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb4-7" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb4-8" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(system_content)) {</span>
+<span id="cb4-9" class="hljs-ln-code"><a href=""></a>    messages[[<span class="fu">length</span>(messages) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"system"</span>, <span class="at">content =</span> system_content)</span>
+<span id="cb4-10" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb4-11" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb4-12" class="hljs-ln-code"><a href=""></a>  messages[[<span class="fu">length</span>(messages) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"user"</span>, <span class="at">content =</span> prompt)</span>
+<span id="cb4-13" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb4-14" class="hljs-ln-code"><a href=""></a>  request <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">request</span>(credentials<span class="sc">$</span>endpoint) <span class="sc">|&gt;</span></span>
+<span id="cb4-15" class="hljs-ln-code"><a href=""></a>    httr2<span class="sc">::</span><span class="fu">req_headers</span>(</span>
+<span id="cb4-16" class="hljs-ln-code"><a href=""></a>      <span class="at">Authorization =</span> <span class="fu">paste</span>(<span class="st">"Bearer"</span>, credentials<span class="sc">$</span>api_key),</span>
+<span id="cb4-17" class="hljs-ln-code"><a href=""></a>      <span class="st">"Content-Type"</span> <span class="ot">=</span> <span class="st">"application/json"</span></span>
+<span id="cb4-18" class="hljs-ln-code"><a href=""></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb4-19" class="hljs-ln-code"><a href=""></a>    httr2<span class="sc">::</span><span class="fu">req_body_json</span>(<span class="fu">list</span>(</span>
+<span id="cb4-20" class="hljs-ln-code"><a href=""></a>      <span class="at">model =</span> <span class="st">"optimize-v2"</span>,</span>
+<span id="cb4-21" class="hljs-ln-code"><a href=""></a>      <span class="at">messages =</span> messages,</span>
+<span id="cb4-22" class="hljs-ln-code"><a href=""></a>      <span class="at">max_tokens =</span> <span class="dv">600</span>,</span>
+<span id="cb4-23" class="hljs-ln-code"><a href=""></a>      <span class="at">temperature =</span> temperature</span>
+<span id="cb4-24" class="hljs-ln-code"><a href=""></a>    ))</span>
+<span id="cb4-25" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb4-26" class="hljs-ln-code"><a href=""></a>  response <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">req_perform</span>(request)</span>
+<span id="cb4-27" class="hljs-ln-code"><a href=""></a>  httr2<span class="sc">::</span><span class="fu">resp_body_json</span>(response)</span>
+<span id="cb4-28" class="hljs-ln-code"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>The ‘set_course()’ function is where we build and send the actual API request. It accepts three parameters: the user prompt, an optional system content message to guide the model’s behavior, and a temperature parameter to control output “randomness”. The function first retrieves the necessary credentials, then builds a list of messages with the appropriate format for the Azure API. It supports both system and user message roles, making it flexible for different prompting strategies. The request is formatted using httr2, with appropriate headers and body content, and then sent to the API. The response is then parsed from JSON and returned.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="set_course-crafting-and-sending-copilot-api-requests-1" class="slide level2 smaller" data-auto-animate="true" data-transition="none">
+<h2 data-id="quarto-animate-title"><code>set_course()</code>: Crafting and Sending Copilot API Requests</h2>
+<div class="code-overflow-scroll" style="font-size: 0.8em; max-height: 400px;">
+<div class="sourceCode" id="cb5" data-code-line-numbers="|1|2|6-12|"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a href=""></a>set_course <span class="ot">&lt;-</span> <span class="cf">function</span>(prompt, <span class="at">system_content =</span> <span class="cn">NULL</span>, <span class="at">temperature =</span> <span class="dv">0</span>) {</span>
+<span id="cb5-2" class="hljs-ln-code"><a href=""></a>  credentials <span class="ot">&lt;-</span> <span class="fu">airport_security</span>()</span>
+<span id="cb5-3" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb5-4" class="hljs-ln-code"><a href=""></a>  temperature <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="dv">0</span>, <span class="fu">min</span>(<span class="dv">2</span>, temperature))</span>
+<span id="cb5-5" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb5-6" class="hljs-ln-code"><a href=""></a>  messages <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb5-7" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb5-8" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(system_content)) {</span>
+<span id="cb5-9" class="hljs-ln-code"><a href=""></a>    messages[[<span class="fu">length</span>(messages) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"system"</span>, <span class="at">content =</span> system_content)</span>
+<span id="cb5-10" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb5-11" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb5-12" class="hljs-ln-code"><a href=""></a>  messages[[<span class="fu">length</span>(messages) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"user"</span>, <span class="at">content =</span> prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>The ‘set_course()’ function is where we build and send the actual API request. It accepts three parameters: the user prompt, an optional system content message to guide the model’s behavior, and a temperature parameter to control output “randomness”. The function first retrieves the necessary credentials, then builds a list of messages with the appropriate format for the Azure API. It supports both system and user message roles, making it flexible for different prompting strategies. The request is formatted using httr2, with appropriate headers and body content, and then sent to the API. The response is then parsed from JSON and returned.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="set_course-crafting-and-sending-copilot-api-requests-2" class="slide level2 smaller" data-auto-animate="true" data-transition="none">
+<h2 data-id="quarto-animate-title"><code>set_course()</code>: Crafting and Sending Copilot API Requests</h2>
+<div class="code-overflow-scroll" style="font-size: 0.9em; max-height: 400px;">
+<div class="sourceCode" id="cb6" data-code-line-numbers="|1-11|12-15|"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a href=""></a>  request <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">request</span>(credentials<span class="sc">$</span>endpoint) <span class="sc">|&gt;</span></span>
+<span id="cb6-2" class="hljs-ln-code"><a href=""></a>    httr2<span class="sc">::</span><span class="fu">req_headers</span>(</span>
+<span id="cb6-3" class="hljs-ln-code"><a href=""></a>      <span class="at">Authorization =</span> <span class="fu">paste</span>(<span class="st">"Bearer"</span>, credentials<span class="sc">$</span>api_key),</span>
+<span id="cb6-4" class="hljs-ln-code"><a href=""></a>      <span class="st">"Content-Type"</span> <span class="ot">=</span> <span class="st">"application/json"</span></span>
+<span id="cb6-5" class="hljs-ln-code"><a href=""></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb6-6" class="hljs-ln-code"><a href=""></a>    httr2<span class="sc">::</span><span class="fu">req_body_json</span>(<span class="fu">list</span>(</span>
+<span id="cb6-7" class="hljs-ln-code"><a href=""></a>      <span class="at">model =</span> <span class="st">"optimize-v2"</span>,</span>
+<span id="cb6-8" class="hljs-ln-code"><a href=""></a>      <span class="at">messages =</span> messages,</span>
+<span id="cb6-9" class="hljs-ln-code"><a href=""></a>      <span class="at">max_tokens =</span> <span class="dv">600</span>,</span>
+<span id="cb6-10" class="hljs-ln-code"><a href=""></a>      <span class="at">temperature =</span> temperature</span>
+<span id="cb6-11" class="hljs-ln-code"><a href=""></a>    ))</span>
+<span id="cb6-12" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb6-13" class="hljs-ln-code"><a href=""></a>  response <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">req_perform</span>(request)</span>
+<span id="cb6-14" class="hljs-ln-code"><a href=""></a>  httr2<span class="sc">::</span><span class="fu">resp_body_json</span>(response)</span>
+<span id="cb6-15" class="hljs-ln-code"><a href=""></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>The ‘set_course()’ function is where we build and send the actual API request. It accepts three parameters: the user prompt, an optional system content message to guide the model’s behavior, and a temperature parameter to control output “randomness”. The function first retrieves the necessary credentials, then builds a list of messages with the appropriate format for the Azure API. It supports both system and user message roles, making it flexible for different prompting strategies. The request is formatted using httr2, with appropriate headers and body content, and then sent to the API. The response is then parsed from JSON and returned.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="set_course-crafting-and-sending-copilot-api-requests-3" class="slide level2 smaller" data-auto-animate="true" data-transition="none">
+<h2 data-id="quarto-animate-title"><code>set_course()</code>: Crafting and Sending Copilot API Requests</h2>
+<div class="code-overflow-scroll" style="font-size: 0.8em; max-height: 400px;">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href=""></a>set_course <span class="ot">&lt;-</span> <span class="cf">function</span>(prompt, <span class="at">system_content =</span> <span class="cn">NULL</span>, <span class="at">temperature =</span> <span class="dv">0</span>) {</span>
+<span id="cb7-2" class="hljs-ln-code"><a href=""></a>  credentials <span class="ot">&lt;-</span> <span class="fu">airport_security</span>()</span>
+<span id="cb7-3" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb7-4" class="hljs-ln-code"><a href=""></a>  temperature <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="dv">0</span>, <span class="fu">min</span>(<span class="dv">2</span>, temperature))</span>
+<span id="cb7-5" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb7-6" class="hljs-ln-code"><a href=""></a>  messages <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb7-7" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb7-8" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(system_content)) {</span>
+<span id="cb7-9" class="hljs-ln-code"><a href=""></a>    messages[[<span class="fu">length</span>(messages) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"system"</span>, <span class="at">content =</span> system_content)</span>
+<span id="cb7-10" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb7-11" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb7-12" class="hljs-ln-code"><a href=""></a>  messages[[<span class="fu">length</span>(messages) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"user"</span>, <span class="at">content =</span> prompt)</span>
+<span id="cb7-13" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb7-14" class="hljs-ln-code"><a href=""></a>  request <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">request</span>(credentials<span class="sc">$</span>endpoint) <span class="sc">|&gt;</span></span>
+<span id="cb7-15" class="hljs-ln-code"><a href=""></a>    httr2<span class="sc">::</span><span class="fu">req_headers</span>(</span>
+<span id="cb7-16" class="hljs-ln-code"><a href=""></a>      <span class="at">Authorization =</span> <span class="fu">paste</span>(<span class="st">"Bearer"</span>, credentials<span class="sc">$</span>api_key),</span>
+<span id="cb7-17" class="hljs-ln-code"><a href=""></a>      <span class="st">"Content-Type"</span> <span class="ot">=</span> <span class="st">"application/json"</span></span>
+<span id="cb7-18" class="hljs-ln-code"><a href=""></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb7-19" class="hljs-ln-code"><a href=""></a>    httr2<span class="sc">::</span><span class="fu">req_body_json</span>(<span class="fu">list</span>(</span>
+<span id="cb7-20" class="hljs-ln-code"><a href=""></a>      <span class="at">model =</span> <span class="st">"optimize-v2"</span>,</span>
+<span id="cb7-21" class="hljs-ln-code"><a href=""></a>      <span class="at">messages =</span> messages,</span>
+<span id="cb7-22" class="hljs-ln-code"><a href=""></a>      <span class="at">max_tokens =</span> <span class="dv">600</span>,</span>
+<span id="cb7-23" class="hljs-ln-code"><a href=""></a>      <span class="at">temperature =</span> temperature</span>
+<span id="cb7-24" class="hljs-ln-code"><a href=""></a>    ))</span>
+<span id="cb7-25" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb7-26" class="hljs-ln-code"><a href=""></a>  response <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">req_perform</span>(request)</span>
+<span id="cb7-27" class="hljs-ln-code"><a href=""></a>  httr2<span class="sc">::</span><span class="fu">resp_body_json</span>(response)</span>
+<span id="cb7-28" class="hljs-ln-code"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>The ‘set_course()’ function is where we build and send the actual API request. It accepts three parameters: the user prompt, an optional system content message to guide the model’s behavior, and a temperature parameter to control output “randomness”. The function first retrieves the necessary credentials, then builds a list of messages with the appropriate format for the Azure API. It supports both system and user message roles, making it flexible for different prompting strategies. The request is formatted using httr2, with appropriate headers and body content, and then sent to the API. The response is then parsed from JSON and returned.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="pilot_message-generating-the-messages" class="slide level2 smaller" data-auto-animate="true" data-transition="none">
+<h2 data-id="quarto-animate-title"><code>pilot_message()</code>: Generating the Messages</h2>
+<div class="code-overflow-scroll" style="font-size: 0.8em; max-height: 400px;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a href=""></a>pilot_message <span class="ot">&lt;-</span> <span class="cf">function</span>(base_prompt, </span>
+<span id="cb8-2" class="hljs-ln-code"><a href=""></a>                         <span class="at">system_prompt =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-3" class="hljs-ln-code"><a href=""></a>                         <span class="at">additional_information =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-4" class="hljs-ln-code"><a href=""></a>                         <span class="at">connections =</span> <span class="dv">4</span>,</span>
+<span id="cb8-5" class="hljs-ln-code"><a href=""></a>                         <span class="at">temperature =</span> <span class="dv">0</span>,</span>
+<span id="cb8-6" class="hljs-ln-code"><a href=""></a>                         <span class="at">itinerary =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb8-7" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb8-8" class="hljs-ln-code"><a href=""></a>  enhanced_prompt <span class="ot">&lt;-</span> base_prompt</span>
+<span id="cb8-9" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb8-10" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(additional_information)) {</span>
+<span id="cb8-11" class="hljs-ln-code"><a href=""></a>    enhanced_prompt <span class="ot">&lt;-</span> <span class="fu">paste0</span>(enhanced_prompt, </span>
+<span id="cb8-12" class="hljs-ln-code"><a href=""></a>                             <span class="st">"</span><span class="sc">\n</span><span class="st">Additional information: "</span>, additional_information)</span>
+<span id="cb8-13" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb8-14" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb8-15" class="hljs-ln-code"><a href=""></a>  all_messages <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb8-16" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb8-17" class="hljs-ln-code"><a href=""></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>connections) {</span>
+<span id="cb8-18" class="hljs-ln-code"><a href=""></a>    response <span class="ot">&lt;-</span> <span class="fu">set_course</span>(enhanced_prompt, <span class="at">system_content =</span> system_prompt, </span>
+<span id="cb8-19" class="hljs-ln-code"><a href=""></a>                         <span class="at">temperature =</span> temperature)</span>
+<span id="cb8-20" class="hljs-ln-code"><a href=""></a>    </span>
+<span id="cb8-21" class="hljs-ln-code"><a href=""></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(response) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.null</span>(response<span class="sc">$</span>choices) <span class="sc">&amp;&amp;</span> </span>
+<span id="cb8-22" class="hljs-ln-code"><a href=""></a>        <span class="fu">length</span>(response<span class="sc">$</span>choices) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb8-23" class="hljs-ln-code"><a href=""></a>      raw_result <span class="ot">&lt;-</span> response<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content</span>
+<span id="cb8-24" class="hljs-ln-code"><a href=""></a>      all_messages[[i]] <span class="ot">&lt;-</span> <span class="fu">trimws</span>(raw_result)</span>
+<span id="cb8-25" class="hljs-ln-code"><a href=""></a>    } <span class="cf">else</span> {</span>
+<span id="cb8-26" class="hljs-ln-code"><a href=""></a>      all_messages[[i]] <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"API response error for connection"</span>, i)</span>
+<span id="cb8-27" class="hljs-ln-code"><a href=""></a>    }</span>
+<span id="cb8-28" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb8-29" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb8-30" class="hljs-ln-code"><a href=""></a>  all_messages <span class="ot">&lt;-</span> <span class="fu">unlist</span>(all_messages)</span>
+<span id="cb8-31" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb8-32" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span> (itinerary) {</span>
+<span id="cb8-33" class="hljs-ln-code"><a href=""></a>    <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb8-34" class="hljs-ln-code"><a href=""></a>      <span class="at">system =</span> system_prompt,</span>
+<span id="cb8-35" class="hljs-ln-code"><a href=""></a>      <span class="at">prompt =</span> enhanced_prompt,</span>
+<span id="cb8-36" class="hljs-ln-code"><a href=""></a>      <span class="at">response =</span> all_messages</span>
+<span id="cb8-37" class="hljs-ln-code"><a href=""></a>    ))</span>
+<span id="cb8-38" class="hljs-ln-code"><a href=""></a>  } <span class="cf">else</span> {</span>
+<span id="cb8-39" class="hljs-ln-code"><a href=""></a>    <span class="fu">return</span>(all_messages)</span>
+<span id="cb8-40" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb8-41" class="hljs-ln-code"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>The ‘pilot_message()’ function serves as the main user interface. It’s designed to generate multiple message variations in a single call, providing flexibility for researchers to choose the best response.</p>
+<p>The function accepts several parameters: the base prompt, an optional system prompt for guided generation, additional information to append to the prompt, the number of message variations to generate, temperature for controlling randomness, and an verbose flag called “itinerary”.</p>
+<p>For each requested connection, it calls set_course() and collects the results. The function handles error checking and provides either just the generated messages or a complete list with the original prompts depending on the itinerary parameter.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="pilot_message-generating-the-messages-1" class="slide level2 smaller" data-auto-animate="true" data-transition="none">
+<h2 data-id="quarto-animate-title"><code>pilot_message()</code>: Generating the Messages</h2>
+<div class="code-overflow-scroll" style="font-size: 0.8em; max-height: 400px;">
+<div class="sourceCode" id="cb9" data-code-line-numbers="|1|2|3|4|5|6|8-15"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a href=""></a>pilot_message <span class="ot">&lt;-</span> <span class="cf">function</span>(base_prompt, </span>
+<span id="cb9-2" class="hljs-ln-code"><a href=""></a>                         <span class="at">system_prompt =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-3" class="hljs-ln-code"><a href=""></a>                         <span class="at">additional_information =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-4" class="hljs-ln-code"><a href=""></a>                         <span class="at">connections =</span> <span class="dv">4</span>,</span>
+<span id="cb9-5" class="hljs-ln-code"><a href=""></a>                         <span class="at">temperature =</span> <span class="dv">0</span>,</span>
+<span id="cb9-6" class="hljs-ln-code"><a href=""></a>                         <span class="at">itinerary =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb9-7" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb9-8" class="hljs-ln-code"><a href=""></a>  enhanced_prompt <span class="ot">&lt;-</span> base_prompt</span>
+<span id="cb9-9" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb9-10" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(additional_information)) {</span>
+<span id="cb9-11" class="hljs-ln-code"><a href=""></a>    enhanced_prompt <span class="ot">&lt;-</span> <span class="fu">paste0</span>(enhanced_prompt, </span>
+<span id="cb9-12" class="hljs-ln-code"><a href=""></a>                             <span class="st">"</span><span class="sc">\n</span><span class="st">Additional information: "</span>, additional_information)</span>
+<span id="cb9-13" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb9-14" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb9-15" class="hljs-ln-code"><a href=""></a>  all_messages <span class="ot">&lt;-</span> <span class="fu">list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>The ‘pilot_message()’ function serves as the main user interface. It’s designed to generate multiple message variations in a single call, providing flexibility for researchers to choose the best response.</p>
+<p>The function accepts several parameters: the base prompt, an optional system prompt for guided generation, additional information to append to the prompt, the number of message variations to generate, temperature for controlling randomness, and an verbose flag called “itinerary”.</p>
+<p>For each requested connection, it calls set_course() and collects the results. The function handles error checking and provides either just the generated messages or a complete list with the original prompts depending on the itinerary parameter.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="pilot_message-generating-the-messages-2" class="slide level2 smaller" data-auto-animate="true" data-transition="none">
+<h2 data-id="quarto-animate-title"><code>pilot_message()</code>: Generating the Messages</h2>
+<div class="code-overflow-scroll" style="font-size: 0.8em; max-height: 400px;">
+<div class="sourceCode" id="cb10" data-code-line-numbers="|1-4|5-13|13-25|"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb10-1" class="hljs-ln-code"><a href=""></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>connections) {</span>
+<span id="cb10-2" class="hljs-ln-code"><a href=""></a>    response <span class="ot">&lt;-</span> <span class="fu">set_course</span>(enhanced_prompt, <span class="at">system_content =</span> system_prompt, </span>
+<span id="cb10-3" class="hljs-ln-code"><a href=""></a>                         <span class="at">temperature =</span> temperature)</span>
+<span id="cb10-4" class="hljs-ln-code"><a href=""></a>    </span>
+<span id="cb10-5" class="hljs-ln-code"><a href=""></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(response) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.null</span>(response<span class="sc">$</span>choices) <span class="sc">&amp;&amp;</span> </span>
+<span id="cb10-6" class="hljs-ln-code"><a href=""></a>        <span class="fu">length</span>(response<span class="sc">$</span>choices) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb10-7" class="hljs-ln-code"><a href=""></a>      raw_result <span class="ot">&lt;-</span> response<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content</span>
+<span id="cb10-8" class="hljs-ln-code"><a href=""></a>      all_messages[[i]] <span class="ot">&lt;-</span> <span class="fu">trimws</span>(raw_result)</span>
+<span id="cb10-9" class="hljs-ln-code"><a href=""></a>    } <span class="cf">else</span> {</span>
+<span id="cb10-10" class="hljs-ln-code"><a href=""></a>      all_messages[[i]] <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"API response error for connection"</span>, i)</span>
+<span id="cb10-11" class="hljs-ln-code"><a href=""></a>    }</span>
+<span id="cb10-12" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb10-13" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb10-14" class="hljs-ln-code"><a href=""></a>  all_messages <span class="ot">&lt;-</span> <span class="fu">unlist</span>(all_messages)</span>
+<span id="cb10-15" class="hljs-ln-code"><a href=""></a>  </span>
+<span id="cb10-16" class="hljs-ln-code"><a href=""></a>  <span class="cf">if</span> (itinerary) {</span>
+<span id="cb10-17" class="hljs-ln-code"><a href=""></a>    <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb10-18" class="hljs-ln-code"><a href=""></a>      <span class="at">system =</span> system_prompt,</span>
+<span id="cb10-19" class="hljs-ln-code"><a href=""></a>      <span class="at">prompt =</span> enhanced_prompt,</span>
+<span id="cb10-20" class="hljs-ln-code"><a href=""></a>      <span class="at">response =</span> all_messages</span>
+<span id="cb10-21" class="hljs-ln-code"><a href=""></a>    ))</span>
+<span id="cb10-22" class="hljs-ln-code"><a href=""></a>  } <span class="cf">else</span> {</span>
+<span id="cb10-23" class="hljs-ln-code"><a href=""></a>    <span class="fu">return</span>(all_messages)</span>
+<span id="cb10-24" class="hljs-ln-code"><a href=""></a>  }</span>
+<span id="cb10-25" class="hljs-ln-code"><a href=""></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>The ‘pilot_message()’ function serves as the main user interface. It’s designed to generate multiple message variations in a single call, providing flexibility for researchers to choose the best response.</p>
+<p>The function accepts several parameters: the base prompt, an optional system prompt for guided generation, additional information to append to the prompt, the number of message variations to generate, temperature for controlling randomness, and an verbose flag called “itinerary”.</p>
+<p>For each requested connection, it calls set_course() and collects the results. The function handles error checking and provides either just the generated messages or a complete list with the original prompts depending on the itinerary parameter.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sample-usage" class="slide level2 smaller">
+<h2>Sample Usage!</h2>
+<p>Example System Prompt:</p>
 <div class="info-box">
-<p>Preview my Github Below!</p>
+<p>“You are a chatbot in an automated recovery support app for people with alcohol use disorder. You are writing a daily message from the app that will provide the person with information from a machine learning model about how they are doing in their recovery today. The message should be 3 to 4 sentences long and written for someone with an 8th grade reading level. Do not explicitly greet the person, and do not refer to yourself in the message. Do not provide advice.”</p>
 </div>
+</section>
+<section id="sample-usage-1" class="slide level2">
+<h2>Sample Usage</h2>
+<p>Example User Prompt:</p>
+<div class="highlight-box">
+<p>“Write a message to tell this person that they are at low and increasing risk for drinking today. This person prefers messages that legitimize their distress by acknowledging their feelings as reasonable, validating that their experience is difficult, and assuring them it’s okay to express these struggles.”</p>
+</div>
+</section>
+<section id="sample-usage-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Sample Usage!</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href=""></a><span class="fu">pilot_message</span>(</span>
+<span id="cb11-2" class="hljs-ln-code"><a href=""></a>  <span class="at">base_prompt =</span> prompt4a,</span>
+<span id="cb11-3" class="hljs-ln-code"><a href=""></a>  <span class="at">system_prompt =</span> sys_prompt,</span>
+<span id="cb11-4" class="hljs-ln-code"><a href=""></a>  <span class="at">connections =</span> <span class="dv">3</span>,</span>
+<span id="cb11-5" class="hljs-ln-code"><a href=""></a>  <span class="at">itinerary =</span> <span class="cn">TRUE</span></span>
+<span id="cb11-6" class="hljs-ln-code"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="output-pt.-1" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Output Pt. 1</h2>
+<div class="highlight-box">
+<p><code>$system</code> [1] “You are a chatbot in an automated recovery support app for people with alcohol use disorder. You are writing a daily message from the app that will provide the person with information from a machine learning model about how they are doing in their recovery today. The message should be 3 to 4 sentences long and written for someone with an 8th grade reading level. Do not explicitly greet the person, and do not refer to yourself in the message. Do not provide advice.”</p>
+<p><code>$prompt</code> [1] “Write a message to tell this person that they are at low and increasing risk for drinking today. This person prefers messages that legitimize their distress by acknowledging their feelings as reasonable, validating that their experience is difficult, and assuring them it’s okay to express these struggles.”</p>
+</div>
+</section>
+<section id="output-pt.-2" class="slide level2 smaller scrollable" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Output Pt. 2</h2>
+<div class="info-box">
+<p><code>$response</code></p>
+<p>[1] “Some days can feel heavier than others, and it’s completely understandable to feel that way. The challenges you’re facing right now are real, and it’s okay to feel frustrated or overwhelmed. It’s hard work to navigate these moments, but acknowledging your struggles is a sign of strength. You’re allowed to feel what you’re feeling, and it’s okay to let those emotions out.”</p>
+<p>[2] “It looks like today might feel harder than usual, and the urge to drink could be growing. Feeling this way doesn’t mean you’re failing—it’s a natural part of the process, especially when things feel overwhelming. Recovery can be tough, and it’s okay to feel frustrated or worn down. Your feelings are valid, and it’s important to let yourself acknowledge them.”</p>
+<p>[3] “It looks like today might be harder for you, and that’s completely understandable. Feeling the pull toward drinking can be tough, especially when emotions or stress are running high. What you’re going through is valid, and it’s okay to acknowledge how challenging this feels. You don’t have to push those feelings away—letting them out can be part of moving through this moment.”</p>
+</div>
+</section>
+<section id="conclusion" class="slide level2 section-slide">
+<h2>Conclusion</h2>
+</section>
+<section id="future-work-and-next-steps" class="slide level2">
+<h2>Future Work and Next Steps</h2>
+<p>Technical enhancements:</p>
+<ul>
+<li>Cache Support</li>
+<li>Integration with A-CHESS systems</li>
+</ul>
+<p>Methodological enhancements:</p>
+<ul>
+<li>Tidy-text/NLP analysis of messages</li>
+<li>Continued prompt engineering</li>
+</ul>
+<aside class="notes">
+<p>Looking ahead, there are several exciting directions for both technical and methodological enhancements. On the technical side, I am exploring adding cache support, so that if you run an identical prompt within an certain time-frame, you won’t continually generate messages. Additionally, integrating the system directly with A-CHESS backend infrastructure is a necessary step in the future. From a methodological perspective, I’d like to develop ways to quantitatively measure differences within our prompting. Additionally, we are looking into running a Qualtrics panel to see if participants do systematically prefer a certain message style.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="thank-you-questions" class="slide level2">
+<h2>Thank you &amp; Questions</h2>
+<div class="info-box">
+<ul>
+<li>Aviation-themed R interface for Azure API</li>
+<li>Supports the lab’s mission to optimize Smart A-CHESS</li>
+<li>Enables large-scale, personalized message generation</li>
+<li>Part of a broader innovation in digital therapeutics</li>
+</ul>
+</div>
+<aside class="notes">
+<p>To conclude, I’ve developed an aviation-themed R interface that connects to the Azure OpenAI API for automating the generation of support messages for the Smart A-CHESS digital therapeutic. This work supports the Curtin Lab’s mission to optimize how digital therapeutics provide feedback to users, with the ultimate goal of improving engagement and clinical outcomes for people with alcohol use disorder. By enabling large-scale, personalized message generation, this system plays a key role in advancing the research and development of next-generation digital therapeutics. Thank you for your attention, and I’m happy to answer any questions about either the technical implementation or the broader research context.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Message Generation via LLMs to Support Addiction Recovery</p>
+<p>Automating Support Messages with LLMs for AUD Intervention</p>
 </div>
 </div></div>
 
