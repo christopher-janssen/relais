@@ -1,0 +1,128 @@
+---
+title: "Mini-Prac"
+author: "Christopher Janssen"
+date: "April 28, 2025"
+format:
+  revealjs:
+    transition: slide
+    footer: "Message Generation via LLMs to Support Addiction Recovery"
+    slide-number: true
+    code-fold: false
+    theme: decoration
+---
+
+## Introduction {.section-slide}
+
+UW-Madison Addiction Research Center.
+
+## Four Key Concepts {.centered}
+
+::::::::: r-stack
+:::::::: {.concept-container .visible-container}
+::::::: grid-container
+::: {#concept1 .concept-box data-id="concept1"}
+### Concept 1
+:::
+
+::: {#concept2 .concept-box data-id="concept2"}
+### Concept 2
+:::
+
+::: {#concept3 .concept-box data-id="concept3"}
+### Concept 3
+:::
+
+::: {#concept4 .concept-box data-id="concept4"}
+### Concept 4
+:::
+:::::::
+::::::::
+:::::::::
+
+## Research Context
+
+Challenge: Maintaining engagement with digital therapeutics for AUD
+
+Our Lab's Approach: "Smart" A-CHESS with ML-powered lapse prediction
+
+Current Focus: Optimizing how risk information is communicated to users
+
+Key Question: How to generate diverse, clinically sound messages at scale?
+
+## The Four Message Components
+
+Our clinical trial tests messages that make risk predictions transparent:
+
+-   Lapse probability: Current risk level (low/moderate/high)
+-   Probability change: Trends in risk level over time
+-   Important features: Key risk factors identified by the model
+-   Module recommendations: Suggestions tailored to risk factors
+
+## Project Optimize
+
+Working on the development of digital therapeutics.
+
+## `flight_support.R`
+
+A function that provides an aviation-themed interface to the Azure API for generating message variations.
+
+Key features:
+
+-   Seamless dependency management
+-   API credential handling
+-   Flexible message generation with system and user roles
+-   Multiple response variations with temperature control
+
+## Section Title {.section-slide}
+
+This slide will have the special section divider styling.
+
+## Slide with Columns
+
+::::: {layout="[0.5, 0.55]"}
+::: {#first-column}
+Content for first column
+:::
+
+::: {#second-column}
+Content for second column
+:::
+:::::
+
+## What's the Function? {auto-animate="true"}
+
+``` r
+pilot_message(
+  system_prompt = sys_prompt
+  )
+```
+
+##  {auto-animate="true"}
+
+``` r
+pilot_message(
+  system_prompt = sys_prompt,
+  base_prompt = prompt4a
+)
+```
+
+##  {auto-animate="true"}
+
+``` r
+pilot_message(
+  system_prompt = sys_prompt,
+  base_prompt = prompt4a,
+  connections = 3,
+  temperature = 0
+ )
+```
+
+## Special Boxes
+
+::: highlight-box
+Important content that needs highlighting with the dusty rose accent.
+:::
+
+::: info-box
+Preview my Github Below!
+:::
