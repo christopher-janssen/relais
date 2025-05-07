@@ -1,11 +1,11 @@
 ---
-title: "Mini-Prac"
+title: "Automating Support Messages with LLMs for AUD Intervention"
 author: "Christopher Janssen"
 date: "April 28, 2025"
 format:
   revealjs:
     transition: slide
-    footer: "Automating Support Messages with LLMs for AUD Intervention"
+    footer: "Mini-Prac"
     slide-number: true
     code-fold: false
     theme: decoration
