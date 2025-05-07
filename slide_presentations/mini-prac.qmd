@@ -16,18 +16,18 @@ format:
 ## Context
 
 ::: info-box
--   Collaboration with Curtin Lab on Smart A-CHESS project
+-   Collaboration with the UW Addiction Research Lab
 -   Focus on automating personalized engagement messages
--   Using Azure OpenAI API for message generation
+-   Using OpenAI API for message generation
 :::
 
 ::: notes
-This presentation focuses on my contribution to the Curtin Lab's research on smart digital therapeutics for alcohol use disorder. Specifically, I've developed an R interface that connects to the Azure OpenAI API to automate the generation of personalized support messages.
+This presentation focuses on my contribution to the UW-Madison Addiction Research Center's research on smart digital therapeutics for alcohol use disorder. Specifically, I've developed an R script that connects to the OpenAI's API to automate the generation of personalized support messages to aid in the recovery of those with moderate to server alcohol use disorder.
 
-These messages, and therefore the message generation process, represent a crucial component of this study for two key reasons. Firstly, these messages deliver the personalized risk information that forms the foundation of the experimental design, and secondly, this automation provides a practical, cost-effective approach to scaling this intervention for broader implementation, especially outside of research settings.
+These messages, and the R script for generating them, serve as important components of this study. The messages function as delivery vehicles for the personalized risk information that forms the experimental foundation of the research, while simultaneously, the automated generation system demonstrates a scalable, cost-effective pathway for implementing this intervention beyond research settings.
 :::
 
-## Understanding *A-CHESS* & Research Context {.section-slide}
+## *A-CHESS* & Research Context {.section-slide}
 
 ## A-CHESS: A Digital Therapeutic for Alcohol Use Disorder
 
@@ -73,7 +73,7 @@ Evolution of digital therapeutics for AUD
 
     -   Personalized risk assessment
 
-    -   Just-in-time adaptive interventions
+    -   "Just-in-time" adaptive interventions
 :::
 
 ::: notes
@@ -81,11 +81,11 @@ The overarching goal is to optimize how Smart A-CHESS provides feedback to users
 
 The current study tests three different components of engagement messages:
 
--   information about lapse probability including changes in that probability over time
+-   information about lapse probability
 
--   important risk factors identified by the model,
+-   important risk features identified by the model
 
--   and specific module recommendations tailored to address those risk factors.
+-   and specific module recommendations tailored to address those risk features
 
 The study will include upwards of 400 participants with moderate to severe alcohol use disorder and track both their engagement with the app and their drinking outcomes over six months. This large-scale optimization study will determine which message components should be included in future versions of Smart A-CHESS and similar digital therapeutics.
 :::
