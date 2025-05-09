@@ -578,12 +578,12 @@ pilot_message(
 
 ## Future Work and Next Steps
 
-Technical enhancements:
+*Technical enhancements*:
 
 -   Cache Support
 -   Integration with A-CHESS systems
 
-Methodological enhancements:
+*Methodological enhancements*:
 
 -   Tidy-text/NLP analysis of messages
 -   Continued prompt engineering
@@ -592,15 +592,12 @@ Methodological enhancements:
 Looking ahead, there are several exciting directions for both technical and methodological enhancements. On the technical side, I am exploring adding cache support, so that if you run an identical prompt within an certain time-frame, you won't continually generate messages. Additionally, integrating the system directly with A-CHESS backend infrastructure is a necessary step in the future. From a methodological perspective, I'd like to develop ways to quantitatively measure differences within our prompting. Additionally, we are looking into running a Qualtrics panel to see if participants do systematically prefer a certain message style.
 :::
 
-## Thank you & Questions
+## Thank you & Questions?
 
 ::: info-box
--   Aviation-themed R interface for Azure API
--   Supports the lab's mission to optimize Smart A-CHESS
+-   Aviation-themed R interface for Microsoft Copilot
+-   Supports the lab's mission to optimize recovery care
 -   Enables large-scale, personalized message generation
 -   Part of a broader innovation in digital therapeutics
 :::
 
-::: notes
-To conclude, I've developed an aviation-themed R interface that connects to the Azure OpenAI API for automating the generation of support messages for the Smart A-CHESS digital therapeutic. This work supports the Curtin Lab's mission to optimize how digital therapeutics provide feedback to users, with the ultimate goal of improving engagement and clinical outcomes for people with alcohol use disorder. By enabling large-scale, personalized message generation, this system plays a key role in advancing the research and development of next-generation digital therapeutics. Thank you for your attention, and I'm happy to answer any questions about either the technical implementation or the broader research context.
-:::

@@ -1,0 +1,219 @@
+---
+title: "Automating Support Messages with LLMs for AUD Recovery"
+author: "Christopher Janssen"
+date: "5/9/2025"
+format:
+  revealjs:
+    transition: slide
+    footer: "Mini-Prac"
+    slide-number: true
+    code-fold: false
+    theme: [default, "./decoration"]
+---
+
+## Introduction {.section-slide}
+
+## Context
+
+::: highlight-box
+-   30+ million adults with active AUD
+-   140,000 annual deaths
+-   \$249 billion economic costs
+:::
+
+I've developed an R script that leverages cloud-based LLMs to generate personalized support messages for individuals with AUD
+
+::: notes
+Alcohol use disorder affects over 30 million US adults, causes approximately 140,000 deaths annually, and costs our economy nearly \$250 billion each year. My work focuses on addressing a critical gap in how we support long-term recovery through automated, personalized messaging that scales effectively.
+:::
+
+## The Paradox:
+
+![](../images/diagram.png){width="100%"}
+
+1.  Evidence-based interventions exist with highest level of empirical support
+2.  Challenge is delivering ongoing support for a complex, nonlinear recovery
+
+::: notes
+Research has firmly established effective approaches for treating Alcohol Use Disorder (AUD). Marlatt and Gordon's Relapse Prevention Model—which you can see displayed here—demonstrates our robust understanding of the recovery process.
+
+Here's the paradox we face: despite having proven treatments, implementation remains challenging because recovery is rarely linear.
+
+As illustrated in this model, when individuals lack adequate support during high-risk situations, a previously successful recovery can quickly spiral into relapse. What makes this particularly challenging is that risk factors aren't static—they fluctuate over time based on changing life circumstances.
+
+This dynamic nature of recovery means effective support systems must be adaptive, responsive, and tailored to address these evolving challenges.
+:::
+
+## The Long-Term Support Challenge
+
+**Successful recovery requires lifelong monitoring, but resources are insufficient for long-term clinician-guided care**
+
+-   Machine learning models can predict lapses (AUC 0.91)
+-   Interpretable methods identify patient-specific risk factors
+-   Support can be anchored to the Relapse Prevention model
+
+::: notes
+Research clearly demonstrates that successful recovery requires lifelong monitoring. However, it's our current situation where our healthcare system excels at initial treatment but struggles with sustained support. This creates a fundamental implementation challenge.
+
+Despite this, recent technological advances offer a potential solution. Machine learning models can now predict imminent lapses with exceptional accuracy. Importantly, interpretable methods can identify which factors are driving risk for each individual at any moment, allowing for targeted, personalized support
+:::
+
+## The Engagement Imperative
+
+:::::: {layout="[0.6, 0.4]"}
+:::: {#first-column}
+::: info-box
+Personalized Messages → Increased Engagement Generic Messages → Limited Engagement
+:::
+::::
+
+::: {#second-column}
+![](../images/personalize.png){width="35%"}
+:::
+::::::
+
+::: notes
+For automated support to be effective, it must promote engagement. Research on human-algorithm communication shows that users are more likely to follow recommendations when they perceive them as personalized and relevant to their specific situation. At the end of the day, it doesn't matter how accurate our models are, if they are too 'black-boxy' for any individual to trust and accept.
+
+This creates a critical requirement: our support messages must be personalized to each individual's risk factors, situation, and needs. However, traditional approaches to personalization don't scale — clinicians can't be expected to en masse be available 24/7 for every patient, and even in the scope of our current study, writing a personalized support message for 400 individuals everyday, for 12 months.... Well, it's a lot of message. This is where my technical solution comes in.
+:::
+
+## The Solution: LLM-Powered Personalization at Scale
+
+::: highlight-box
+Making predictions from 'black-box' models more transparent improves acceptance and trust in machine learning recommendations
+:::
+
+**This can only be scalable if personalization can be done at a large scale, which LLMs allow us to do**
+
+::: notes
+Large Language Models offer a breakthrough capability: personalization at scale. By feeding these models with patient-specific information about current risk factors identified through machine learning, we can generate highly individualized support messages that align with evidence-based interventions — not just for a handful of patients, but potentially for thousands.
+
+My script allows not only for direct interaction with these LLMs via R, but also provides enough flexible functionality to support prompt engineering, which has come to be a fundamental aspect of interacting with these LLMs.
+
+You might be wondering why we bothered adding prompt engineering support, and to show you the difference, here are some examples of messages that a variety of models generated throughout our development of the script.
+:::
+
+## Does ChatGPT Dream of Electric Sheep?
+
+::: info-box
+"Young man, your resilience and commitment to recovery over these four months are truly commendable. Developing healthy coping mechanisms to manage stress is a critical step towards long-term success, and I am confident in your ability to persevere."
+:::
+
+::: notes
+Things to talk about: - "Young man" - "Resilience, commendable" - "I am confident"
+:::
+
+## Does ChatGPT Dream of Electric Sheep?
+
+::: info-box
+"Young man, your resilience over the past four months is commendable, and I encourage you to explore stress management techniques such as deep breathing exercises, mindfulness practices, or physical activity to help you navigate challenges effectively on your recovery journey."
+:::
+
+::: notes
+Here's a different message, with it's own batch of unique problems, though a bit less obvious.
+
+Things to talk about: - "Young man" - Crossing with experimental design
+:::
+
+## POV: Prompt Engineering
+
+![](../images/chatgpt_ss2.png){width="100%" fig-align="left"}
+
+::: notes
+Here is where most people are when they are conducting prompt engineering. Interfacing directly with their LLM of choosing, typing responses into this sleek, chatbox.
+
+And this is good for the average individual, it's a simple interface that's easy to use! But what if you wanted to systematically test how the model responded to a certain prompt?
+
+Go into details about the pain of that, mention how we had to do it once because we were mid-transition in switching LLMs, chat history and progressive learning, starting new chat boxes, updates, etc
+
+At the end: So what remains for the resilient and commendable researcher who wants to leverage the power of AI and LLMS? They can use an script to interface with the API of the LLM, and prompt it directly from the terminal.
+:::
+
+## Introducing: **flight_support.R**
+
+::: info-box
+![](../images/airplane1.png){width="60%"}
+:::
+
+::: notes
+So, finally, `flight_support.R` is the core of my Mini-Prac. It's an R script that handles connecting to the Azure API, sending properly formatted requests, and processing responses. The aviation theme comes from the fact that this script specifically interacts with Microsoft's `copilot`, and when I was demoing it I just was having to much fun, and now that it's actually being used I am too attached to change it, much to the chagrin of some of my colleagues....
+
+The script consists of four main functions, each handling a specific aspect of the workflow. But, obviously, it is much too lengthy to attempt to present in a talk like, honestly it's so foolish, it never even occured to me to present it this way, SO instead I'll run you through how using the script would conceivably work!
+:::
+
+## Example System Prompt: {.smaller}
+
+::: info-box
+"You are a chatbot in an automated recovery support app for people with alcohol use disorder. You are writing a daily message from the app that will provide the person with information from a machine learning model about how they are doing in their recovery today. The message should be 3 to 4 sentences long and written for someone with an 8th grade reading level. Do not explicitly greet the person, and do not refer to yourself in the message. Do not provide advice."
+:::
+
+## Example User Prompt:
+
+::: highlight-box
+"Write a message to tell this person that they are at low and increasing risk for drinking today. This person prefers messages that legitimize their distress by acknowledging their feelings as reasonable, validating that their experience is difficult, and assuring them it's okay to express these struggles."
+:::
+
+## Sample Usage! {auto-animate="true"}
+
+``` r
+pilot_message(
+  base_prompt = prompt4a,
+  system_prompt = sys_prompt,
+  connections = 3,
+  itinerary = TRUE
+)
+```
+
+## Output Pt. 1 {.smaller .scrollable auto-animate="true"}
+
+`$system`
+
+> \[1\] "You are a chatbot in an automated recovery support app for people with alcohol use disorder. You are writing a daily message from the app that will provide the person with information from a machine learning model about how they are doing in their recovery today. The message should be 3 to 4 sentences long and written for someone with an 8th grade reading level. Do not explicitly greet the person, and do not refer to yourself in the message. Do not provide advice."
+
+`$prompt`
+
+> \[1\] "Write a message to tell this person that they are at low and increasing risk for drinking today. This person prefers messages that legitimize their distress by acknowledging their feelings as reasonable, validating that their experience is difficult, and assuring them it's okay to express these struggles."
+
+## Output Pt. 2 {.smaller .scrollable auto-animate="true"}
+
+`$response`
+
+> \[1\] "Some days can feel heavier than others, and it’s completely understandable to feel that way. The challenges you’re facing right now are real, and it’s okay to feel frustrated or overwhelmed. It’s hard work to navigate these moments, but acknowledging your struggles is a sign of strength. You’re allowed to feel what you’re feeling, and it’s okay to let those emotions out."
+
+> \[2\] "It looks like today might feel harder than usual, and the urge to drink could be growing. Feeling this way doesn’t mean you’re failing—it’s a natural part of the process, especially when things feel overwhelming. Recovery can be tough, and it’s okay to feel frustrated or worn down. Your feelings are valid, and it’s important to let yourself acknowledge them."
+
+> \[3\] "It looks like today might be harder for you, and that’s completely understandable. Feeling the pull toward drinking can be tough, especially when emotions or stress are running high. What you’re going through is valid, and it’s okay to acknowledge how challenging this feels. You don’t have to push those feelings away—letting them out can be part of moving through this moment."
+
+## Conclusion {.section-slide}
+
+## **Next Destination**
+
+Technical enhancements:
+
+-   Cache Support
+
+-   Integration with model information systems
+
+Methodological enhancements:
+
+-   Tidy-text/NLP analysis of messages
+
+-   Continued prompt engineering
+
+::: notes
+Looking ahead, there are several exciting directions for both technical and methodological enhancements. On the technical side, I am exploring adding cache support, so that if you run an identical prompt within an certain time-frame, you won't continually generate messages. Additionally, integrating the system directly with the predictive model infrastructure is a necessary step in the future. From a methodological perspective, I'd like to develop ways to quantitatively measure differences within our prompting. Additionally, we are looking into running a Qualtrics panel to see if participants do systematically prefer a certain message style.
+:::
+
+## Thank you & Questions
+
+::: info-box
+-   Aviation-themed R interface for Microsoft Copilot
+-   Supports the lab's mission to optimize recovery care
+-   Enables large-scale, personalized message generation
+-   Part of a broader innovation in digital therapeutics
+:::
+
+::: info-box
+[https://github.com/christopher-janssen](https://github.com/christopher-janssen){preview-link="false"}
+:::

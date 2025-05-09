@@ -80,6 +80,7 @@
 /*
  * Sophisticated Quarto Presentation SCSS
  * A professional light theme with teal and dusty rose accents
+ * Enhanced with overflow handling and responsive improvements
  */
 
 // Color palette
@@ -2646,9 +2647,18 @@ html, body {
     background-color: $background;
     padding: 1em 1.5em;
     text-align: left;
+    overflow-x: hidden; // Prevent horizontal overflow
     
     &::before {
       @include gradient-top-bar;
+    }
+    
+    // Content container for better width control
+    .content-container {
+      width: 100%;
+      max-width: 1200px; // Maximum width constraint
+      margin: 0 auto;
+      overflow-x: hidden;
     }
   }
 
@@ -2660,6 +2670,8 @@ html, body {
     letter-spacing: -0.01em;
     line-height: 1.2;
     margin-bottom: 0.5em;
+    word-wrap: break-word; // Allow long headings to wrap
+    overflow-wrap: break-word;
   }
 
   h1 {
@@ -2690,6 +2702,7 @@ html, body {
       border-bottom: none;
       padding-bottom: 0.5em;
       margin-bottom: 0.2em;
+      max-width: 100%; // Ensure it doesn't overflow
     }
     
     h2 {
@@ -2698,6 +2711,7 @@ html, body {
       font-size: calc($subheader-size * 0.9);
       color: $text-light;
       margin-bottom: 2em;
+      max-width: 100%; // Ensure it doesn't overflow
     }
     
     &::after {
@@ -2714,6 +2728,7 @@ html, body {
     .quarto-title-authors {
       justify-content: center;
       margin-top: 2em;
+      flex-wrap: wrap; // Allow author names to wrap when needed
     }
   }
 
@@ -2734,6 +2749,8 @@ html, body {
       text-transform: uppercase;
       letter-spacing: 0.05em;
       border-bottom: none;
+      max-width: 90%; // Prevent overflow
+      overflow-wrap: break-word;
     }
     
     &::before {
@@ -2752,10 +2769,17 @@ html, body {
   }
 
   // Text elements
+  p, li, td, th, blockquote {
+    word-wrap: break-word; // Allow long words to be broken
+    overflow-wrap: break-word; // Modern alternative to word-wrap
+    hyphens: auto; // Add hyphens when breaking words
+  }
+  
   p {
     font-size: $body-size;
     margin-bottom: 1em;
     line-height: 1.6;
+    max-width: 100%; // Ensure text doesn't overflow
   }
 
   strong {
@@ -2774,6 +2798,7 @@ html, body {
     text-decoration: none;
     border-bottom: 1px solid $primary-light;
     transition: border-bottom 0.2s ease;
+    word-break: break-all; // Allow URLs to break
     
     &:hover {
       border-bottom: 1px solid $primary;
@@ -2785,11 +2810,13 @@ html, body {
     display: block;
     margin-bottom: 1em;
     margin-left: 1.5em;
+    max-width: 100%; // Ensure lists don't overflow
   }
 
   li {
     margin-bottom: 0.5em;
     line-height: 1.5;
+    max-width: 100%; // Ensure list items don't overflow
   }
 
   ul {
@@ -2822,6 +2849,7 @@ html, body {
     margin: 1em 0;
     font-style: italic;
     position: relative;
+    max-width: 100%; // Ensure it doesn't overflow
     
     &::before {
       content: """;
@@ -2842,15 +2870,17 @@ html, body {
     border-radius: 0 4px 4px 0;
     padding: 1em;
     margin: 1em 0;
-    overflow-x: auto;
+    overflow-x: auto; // Allow horizontal scrolling for code
     font-size: $small-size;
     line-height: 1.4;
+    max-width: 100%; // Ensure it fits within container
     
     code {
       display: block;
       padding: 0;
       background: none;
       border: none;
+      white-space: pre; // Preserve formatting for code
     }
   }
 
@@ -2861,6 +2891,12 @@ html, body {
     padding: 0.1em 0.3em;
     font-size: $small-size;
     color: $primary-dark;
+  }
+  
+  // For inline code that should wrap
+  code:not(pre code) {
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 
   // R code syntax highlighting
@@ -2874,10 +2910,16 @@ html, body {
   }
 
   // Tables
+  .table-container {
+    width: 100%;
+    overflow-x: auto; // Allow horizontal scrolling for wide tables
+    margin: 1em 0;
+  }
+  
   table {
     border-collapse: collapse;
-    margin: 1em 0;
-    width: 100%;
+    margin: 0; // Adjust margin since it's now in a container
+    min-width: 100%; // Ensure it takes full width of container
     font-size: $small-size;
     
     th {
@@ -2905,10 +2947,22 @@ html, body {
     display: block;
     margin: 1em auto;
     border-radius: 4px;
+    object-fit: contain; // Maintains aspect ratio within bounds
+  }
+  
+  // For very large images
+  .large-image-container {
+    overflow-x: auto; // Allow horizontal scrolling for oversized images
+    margin: 1em 0;
+    
+    img {
+      max-height: 70vh; // Limit height to 70% of viewport height
+    }
   }
 
   figure {
     margin: 1.5em 0;
+    max-width: 100%; // Ensure figures don't overflow
   }
 
   figcaption {
@@ -2916,6 +2970,7 @@ html, body {
     color: $text-light;
     text-align: center;
     margin-top: 0.5em;
+    max-width: 100%; // Ensure captions don't overflow
   }
 
   // Footnotes
@@ -2925,6 +2980,8 @@ html, body {
     left: 1.5em;
     font-size: $small-size;
     color: $text-light;
+    max-width: 90%; // Prevent footnotes from extending too far
+    word-wrap: break-word;
   }
 
   // Progress bar
@@ -2955,10 +3012,14 @@ html, body {
   // Custom classes for your content
   .highlight-box {
     @include custom-box($secondary-light, $secondary);
+    max-width: 100%; // Ensure boxes don't overflow
+    overflow-x: hidden;
   }
 
   .info-box {
     @include custom-box($primary-light, $primary);
+    max-width: 100%; // Ensure boxes don't overflow
+    overflow-x: hidden;
   }
 
   .small-text {
@@ -2969,32 +3030,102 @@ html, body {
   .columns {
     display: flex;
     gap: 2em;
+    max-width: 100%;
+    flex-wrap: wrap; // Allow columns to wrap on smaller screens
   }
 
   .column {
     flex: 1;
+    min-width: 0; // Allow columns to shrink below content size
+    overflow-x: hidden; // Prevent horizontal overflow
+  }
+  
+  // Add class for making elements scrollable when needed
+  .scrollable {
+    max-height: 70vh;
+    overflow-y: auto;
+    margin: 1em 0;
   }
 }
 
 // Media queries for responsiveness
 @media screen and (max-width: 1024px) {
-  :root {
-    --header-size: 2.2em;
-    --subheader-size: 1.6em;
-    --body-size: 1em;
+  .reveal {
+    font-size: 0.9em;
+    
+    h1 {
+      font-size: 2.2em;
+    }
+    
+    h2 {
+      font-size: 1.6em;
+    }
+    
+    // Adjust padding for smaller screens
+    .slide {
+      padding: 0.8em 1.2em;
+    }
+    
+    // Adjust column gap
+    .columns {
+      gap: 1.5em;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
-  :root {
-    --header-size: 2em;
-    --subheader-size: 1.4em;
-    --body-size: 0.9em;
+  .reveal {
+    font-size: 0.8em;
+    
+    h1 {
+      font-size: 2em;
+    }
+    
+    h2 {
+      font-size: 1.4em;
+    }
+    
+    // Further reduce padding
+    .slide {
+      padding: 0.6em 1em;
+    }
+    
+    // Stack columns
+    .columns {
+      flex-direction: column;
+      gap: 1em;
+    }
+    
+    // Scale down images more aggressively
+    img:not(.keep-size) {
+      max-width: 90%;
+    }
+    
+    // Reduce table font size
+    table {
+      font-size: 0.85em;
+    }
+    
+    // Adjust code block size
+    pre, code {
+      font-size: 0.85em;
+    }
+  }
+}
+
+// Apply smaller text on cramped slides
+.reveal .slides .smaller {
+  font-size: 0.8em;
+}
+
+// For slides with lots of content
+.reveal .slides .compact-slide {
+  p, li {
+    margin-bottom: 0.5em;
   }
   
-  .reveal .columns {
-    flex-direction: column;
-    gap: 1em;
+  h1, h2, h3 {
+    margin-bottom: 0.3em;
   }
 }
 
