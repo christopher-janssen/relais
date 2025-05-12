@@ -1,6 +1,7 @@
 /*
  * Sophisticated Quarto Presentation SCSS
  * A professional light theme with teal and dusty rose accents
+ * With text wrapping fixes
  */
 
 /*-- scss:uses --*/
@@ -29,11 +30,11 @@ $body-font: 'Source Sans Pro', sans-serif !default;
 $code-font: 'JetBrains Mono', monospace !default;
 
 // Sizes
-$base-size: 1em !default;
-$header-size: 2.5em !default;
-$subheader-size: 1.8em !default;
-$body-size: 1.1em !default;
-$small-size: 0.9em !default;
+$base-size: 1.25em !default;     
+$header-size: 2.8em !default;     
+$subheader-size: 2em !default;     
+$body-size: 1.3em !default;         
+$small-size: 1em !default;         
 
 // Reveal.js specific overrides
 $presentation-heading-font: $heading-font !default;
@@ -81,13 +82,19 @@ html, body {
   .slides {
     border-radius: 4px;
     overflow: hidden;
+    max-width: 95%;
+    margin: 0 auto;
   }
 
-  .slide {
+  .slide, section {
     color: $text;
     background-color: $background;
     padding: 1em 1.5em;
     text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    max-width: 100%;
     
     &::before {
       @include gradient-top-bar;
@@ -102,6 +109,9 @@ html, body {
     letter-spacing: -0.01em;
     line-height: 1.2;
     margin-bottom: 0.5em;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   h1 {
@@ -132,6 +142,8 @@ html, body {
       border-bottom: none;
       padding-bottom: 0.5em;
       margin-bottom: 0.2em;
+      max-width: 100%;
+      word-wrap: break-word;
     }
     
     h2 {
@@ -140,6 +152,8 @@ html, body {
       font-size: calc($subheader-size * 0.9);
       color: $text-light;
       margin-bottom: 2em;
+      max-width: 100%;
+      word-wrap: break-word;
     }
     
     &::after {
@@ -176,6 +190,8 @@ html, body {
       text-transform: uppercase;
       letter-spacing: 0.05em;
       border-bottom: none;
+      max-width: 100%;
+      word-wrap: break-word;
     }
     
     &::before {
@@ -198,6 +214,9 @@ html, body {
     font-size: $body-size;
     margin-bottom: 1em;
     line-height: 1.6;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   strong {
@@ -216,6 +235,8 @@ html, body {
     text-decoration: none;
     border-bottom: 1px solid $primary-light;
     transition: border-bottom 0.2s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     
     &:hover {
       border-bottom: 1px solid $primary;
@@ -227,17 +248,23 @@ html, body {
     display: block;
     margin-bottom: 1em;
     margin-left: 1.5em;
+    padding-right: 1em;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   li {
     margin-bottom: 0.5em;
     line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   ul {
     li {
       list-style-type: none;
       position: relative;
+      padding-right: 0.5em;
       
       &::before {
         content: "";
@@ -264,9 +291,13 @@ html, body {
     margin: 1em 0;
     font-style: italic;
     position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     
     &::before {
-      content: """;
+      content: "\201D"; /* Unicode for right double quotation mark */
       font-family: Georgia, serif;
       font-size: 3em;
       position: absolute;
@@ -287,12 +318,18 @@ html, body {
     overflow-x: auto;
     font-size: $small-size;
     line-height: 1.4;
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     
     code {
       display: block;
       padding: 0;
       background: none;
       border: none;
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
   }
 
@@ -303,6 +340,8 @@ html, body {
     padding: 0.1em 0.3em;
     font-size: $small-size;
     color: $primary-dark;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   // R code syntax highlighting
@@ -321,6 +360,9 @@ html, body {
     margin: 1em 0;
     width: 100%;
     font-size: $small-size;
+    table-layout: fixed;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     
     th {
       background-color: $primary;
@@ -328,11 +370,15 @@ html, body {
       padding: 0.5em;
       text-align: left;
       font-weight: 600;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     
     td {
       padding: 0.5em;
       border-bottom: 1px solid $gray-medium;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     
     tr:nth-child(even) {
@@ -351,6 +397,7 @@ html, body {
 
   figure {
     margin: 1.5em 0;
+    max-width: 100%;
   }
 
   figcaption {
@@ -358,6 +405,8 @@ html, body {
     color: $text-light;
     text-align: center;
     margin-top: 0.5em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   // Footnotes
@@ -367,6 +416,9 @@ html, body {
     left: 1.5em;
     font-size: $small-size;
     color: $text-light;
+    max-width: 90%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   // Progress bar
@@ -397,10 +449,18 @@ html, body {
   // Custom classes for your content
   .highlight-box {
     @include custom-box($secondary-light, $secondary);
+    max-width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .info-box {
     @include custom-box($primary-light, $primary);
+    max-width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .small-text {
@@ -411,31 +471,66 @@ html, body {
   .columns {
     display: flex;
     gap: 2em;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
   }
 
   .column {
     flex: 1;
+    min-width: 0; // This prevents flexbox children from overflowing
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  // Fix for content that might still overflow
+  .reveal .slides section {
+    overflow-x: hidden;
   }
 }
 
 // Media queries for responsiveness
 @media screen and (max-width: 1024px) {
-  :root {
-    --header-size: 2.2em;
-    --subheader-size: 1.6em;
-    --body-size: 1em;
+  .reveal {
+    font-size: 0.9em;
+    
+    h1 {
+      font-size: 2.2em;
+    }
+    
+    h2 {
+      font-size: 1.6em;
+    }
+    
+    p, li {
+      font-size: 1em;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
-  :root {
-    --header-size: 2em;
-    --subheader-size: 1.4em;
-    --body-size: 0.9em;
-  }
-  
-  .reveal .columns {
-    flex-direction: column;
-    gap: 1em;
+  .reveal {
+    font-size: 0.8em;
+    
+    h1 {
+      font-size: 2em;
+    }
+    
+    h2 {
+      font-size: 1.4em;
+    }
+    
+    p, li {
+      font-size: 0.9em;
+    }
+    
+    .columns {
+      flex-direction: column;
+      gap: 1em;
+    }
+    
+    .slides {
+      max-width: 90%;
+    }
   }
 }
